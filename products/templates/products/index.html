@@ -1,51 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF­8">
-	<title>  Интернет магазин Kompik	 </title>
-	<link rel="stylesheet" href="/static/css/style.css">
-</head>
-
-<body>
-	
-<div class="header"> 
-		<div class="header1"> <img src="macbook.png" width="200px"> 
-		</div>
-		
-		<div class="header2"> <h1>Интернет магазин "Kompik" </h1>
-		</div>
-		
-		<div class="header3"> 
-			<ul class="menu">
-				<li> <a href="/"> Главная </a> </li>
-				<li> <a href="/katalog/"> Каталог </a> </li>
-				<li> <a href="/contacts/"> Контакты  </a> </li>
-			</ul>
-		</div>
-	</div>
+{% extends 'geekshop/master.html' %}
 
 
- 
- 
+{% block page_content %}
  <div class="main">
 	<h2 class="yellow" align="middle"> Новинки и спецпредложения </h2>
 
  </p> 
+ 
+  <div class = "products">
+	{% for object in object_list %}
+	<div class = "product_item">
+		<span class = "product_item-name">
+			{{ object.name}}
+		</span>
+		<span class = "product_item-name">
+			{{ object.description}}
+		</span>
+		{% if object.cost %}
+			
+		{% endif%}
+		<span class = "product_item-name">
+			{{ object.cost}}
+		</span>
+		<a href = "{% url 'detail' pk=object.id %}">
+			 Ссылка на {{ object.name }}
+		</a>
+	</div>
+	{% endfor %}
+ </div>
+ 
 </div>
-</div>
+
  <hr>
  
+
+ 
+
+ 
+
+ {% endblock %}
 </body>
 
 
-
-<footer>
-<div class="footer">
-	<div class="prava">
-		Все права защищены. &copy;  
-	</div>
-</div>
-</footer>
 
 
 

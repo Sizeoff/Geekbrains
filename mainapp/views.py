@@ -30,7 +30,9 @@ def contacts(request):
     rendered_page = render_to_string(
             'mainapp/contacts.html',
         {
-            'contacts': ['контакт 1: ','контакт 2: ','контакт 3: +79992295565']
+            'contacts': ['контакт 1: ',
+                         'контакт 2: ',
+                         'контакт 3: +79992295565']
         }
     )
     return HttpResponse(rendered_page)

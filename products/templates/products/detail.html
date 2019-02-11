@@ -1,0 +1,35 @@
+{% extends 'geekshop/master.html' %}
+
+
+{% block page_content %}
+
+ <div class = "main">
+	<h1>
+		{{ object.name }}
+	</h1>
+	
+	<span>
+		{{ object.description}}
+	</span>
+	
+	<span>
+		{{ object.cost}}
+	</span>
+	
+	 <button>
+		Купить
+	</button>
+	
+ </div>
+ 
+
+
+
+ {% endblock %}
+</body>
+
+
+
+
+
+</html>
