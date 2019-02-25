@@ -6,7 +6,7 @@
 <head>
 	<meta charset="UTF­8">
 	<title>  Интернет магазин Kompik	 </title>
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'geekshop/css/style.css' %}">
 </head>
 
 <body>
@@ -20,16 +20,22 @@
 		
 		<div class="header3"> 
 			<ul class="menu">
-				<li> <a href="/"> Главная </a> </li>
-				<li> <a href="/katalog/"> Каталог </a> </li>
-				<li> <a href="/contacts/"> Контакты  </a> </li>
+				<li> <a href="{% url 'mainapp:main' %}"> Главная </a> </li>
+				<li> <a href="{% url 'products:list' %}"> Товары </a> </li>
+				<li> <a href="{% url 'mainapp:contacts' %}"> Контакты  </a> </li>
 			</ul>
 		</div>
 	</div>
 <div>
     {% block page_content %}
 	{% endblock %}
+
+	{% block page_js %}
+	{% endblock %}
 </div>
+
+
+
 
 
 </body>

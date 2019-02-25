@@ -1,9 +1,48 @@
 from django.db import models
 
+
+class Category(models.Model):
+    name = models.CharField(
+        max_length=255
+    )
+
+    description = models.TextField(
+        blank=True,
+        null=True,
+    )
+
+    
+
+
+    # когда меняли модель
+    created = models.DateTimeField(
+        auto_now_add=True,
+    )
+
+    modified = models.DateTimeField(
+        auto_now=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+
 class Product(models.Model):
     name = models.CharField(
         max_length= 255
     )
+
+    image = models.ImageField(
+            upload_to='product',
+            blank=True,
+            null=True,
+        )
+
+    category = models.ForeignKey(Category,
+                                 on_delete= models.CASCADE,
+                                 blank=True,
+                                 null=True,
+                                 )
 
     description = models.TextField(
         blank = True,
@@ -15,6 +54,17 @@ class Product(models.Model):
         decimal_places= 2,
         default= 0
     )
+
+#когда меняли модель
+    created = models.DateTimeField(
+        auto_now_add=True,
+    )
+
+    modified = models.DateTimeField(
+        auto_now=True,
+    )
+
+
 
     def __str__(self):
         return self.name

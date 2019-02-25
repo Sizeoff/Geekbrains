@@ -1,25 +1,42 @@
 {% extends 'geekshop/master.html' %}
 
+{% load static %}
 
 {% block page_content %}
 
  <div class = "main">
-	<h1>
-		{{ object.name }}
+	<h1 class="yellow" align="middle">
+		{{ inst.name }}
 	</h1>
-	
+
+	 <span>
+		 {% if inst.image %}
+		<span class = "product_item-name">
+			<img class="borderimg" src= {{ inst.image.url }} alt="this is image"  height="400" width="300"  >
+		</span>
+		{% else %}
+		<img src = 	"{% static 'products/imgs/empty.png' %}"  height="400" width="300" >
+		{% endif %}
+
+
+
+
+	</span>
+
 	<span>
-		{{ object.description}}
+		<p> {{ inst.description}} </p>
 	</span>
 	
 	<span>
-		{{ object.cost}}
+		<p> {{ inst.cost}}
 	</span>
-	
-	 <button>
+
+	 <a class="buy">
+	<div class="buy">
 		Купить
-	</button>
-	
+	</div>
+ </a>
+
  </div>
  
 
